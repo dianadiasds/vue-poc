@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Exercise 02</title>
+</head>
+<body>
+<div id="app">
+
+    <p v-once>{{ text }} </p>
+
+    <a v-bind:href="link">Google</a>
+
+    <hr>
+
+    <p>{{ methodText() }} </p>
+
+    <hr>
+
+    <p v-html="finishedLink"> </p>
+
+</div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            text: 'Hello World!',
+            link: 'https://www.google.com',
+            finishedLink: '<a href="https://www.google.com">Google</a>'
+        },
+        methods: {
+            methodText: function () {
+                return  this.text = "Hello!"
+            }
+        }
+    })
+</script>
+</html>
