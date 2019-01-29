@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Exercise 04</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="counter++"> Add </button> | <button v-on:click="counter--"> Remove </button>
+        <p> {{ counter }}</p>
+        <p> {{ result }}</p>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter : 0,
+        }
+        ,
+        computed: {
+            result: function () {
+                return this.counter > 10 ? 'bigger than 10' : 'Smaller than 10';
+            }
+        }
+    })
+</script>
+</html>

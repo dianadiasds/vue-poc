@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Exercise 03</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="increaseCounter">increase</button>
+        <p>{{ counter > 3 ? 'Bigger than 3': 'Smaller than 3'  }}</p>
+        <hr>
+
+        <p v-on:mousemove="cordenates"> Mouse position </p>
+        <p>{{ x }} / {{ y }}</p>
+        <hr>
+        <input type="text" v-on:keydown.enter="alert">
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+
+            counter: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            increaseCounter: function (event) {
+               this.counter++
+            },
+            cordenates: function (event) {
+                this.x = event.clientX;
+                this.y = event.clientY
+
+            },
+            alert: function (event) {
+                alert('Alert!')
+            }
+        }
+    })
+</script>
+</html>
