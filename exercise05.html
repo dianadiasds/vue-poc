@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Exercise 05</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="counter++">more</button> | <button @click="counter--"> less </button>
+    <p>{{ counter }}</p>
+</div>
+
+</body>
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            name: 'Diana',
+            counter: 0,
+        }
+    })
+</script>
+</html>
