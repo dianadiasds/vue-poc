@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 06</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<style>
+    .demo{
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin: 10px;
+        background-color: gray;
+    }
+    .blue {
+        background-color: blue;
+    }
+    .green {
+        background-color: green;
+    }
+    .red {
+        background-color: red;
+    }
+</style>
+<body>
+    <div id="app">
+        <div class="demo" @click="att" :class="addClass"></div>
+        <div class="demo" :class="color"></div>
+        <div class="demo" :style="{backgroundColor: color}"></div>
+        <div class="demo" :style="myStyle"></div>
+        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+        <input type="text" v-model="color" >
+        <input type="text" v-model="width" >
+    </div>
+
+</body>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                attachRed: false,
+                color: 'green',
+                width: 100,
+            },
+            computed: {
+                addClass: function () {
+                    return {
+                        red: this.attachRed
+                    }
+                },
+                myStyle: function () {
+                    return {
+                        backgroundColor : this.color,
+                        width : this.width + 'px'
+                    }
+                }
+            },
+            methods: {
+                att: function () {
+                    return this.attachRed = !this.attachRed
+                }
+            }
+        })
+    </script>
+</html>

@@ -1,12 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Exercise 05</title>
+    <meta charset="UTF-8">
+    <title>Exercise 06</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
 <div id="app">
-    <button @click="counter++">more</button> | <button @click="counter--"> less </button>
+    <input type="text" @input="clickChange">
+    <p>{{ name }}</p>
+    <hr>
+    <p v-once>{{ text }}</p>
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p>{{ changeText() }}</p>
+    <p v-html="fulllink"></p>
+    <hr>
+    <button @click="counter++">increase</button>
     <p>{{ counter }}</p>
+    <p>{{ counterText() }}</p>
+    <hr>
+    <p @mousemove="catchPosition">Mouse position</p>
+    <p>{{ x }} | {{ y }}</p>
+    <hr>
+    <input type="text" @keydown.enter="alertMethod">
+    <hr>
+    <button @click="counter2++">add</button> | <button @click="counter2--">remove</button>
+    <p>{{ counter2 }}</p>
+    <p>{{ resultText() }}</p>
+    <hr>
+    <p>Vue js is pretty cool {{ name }} {{ age }}</p>
+    <p>{{ age * 3 }}</p>
+    <p>{{ myRandom() }}</p>
+    <img v-bind:src="img">
+    <input type="text" v-bind:value="name">
 </div>
 
 </body>
@@ -15,7 +42,40 @@
         el: '#app',
         data: {
             name: 'Diana',
-            counter: 0,
+            age: 35,
+            link: 'https://www.google.com',
+            text: 'Hello world',
+            fulllink: '<a href="https://www.google.com">Google</a>',
+            counter: 1,
+            counter2: 0,
+            x: 0,
+            y: 0,
+            img: 'http://qnimate.com/wp-content/uploads/2014/03/images2.jpg',
+        },
+        methods: {
+            clickChange: function (event) {
+                this.name = event.target.value
+            },
+            changeText: function (event) {
+                return this.text = 'Just Hello'
+            },
+            counterText: function (event) {
+                return this.counter > 5 ? 'Counter is Big': 'Counter is Small'
+
+            },
+            catchPosition: function (event) {
+                this.x = event.clientX;
+                this.y = event.clientY
+            },
+            alertMethod: function () {
+                return alert('Alert!')
+            },
+            resultText: function () {
+                return this.counter2 > 10 ? 'Bigger than 10' : 'Smaller than 10'
+            },
+            myRandom: function () {
+                return Math.random()
+            }
         }
     })
 </script>
