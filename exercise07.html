@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 07</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <p v-if="show">This text</p>
+    <p v-else>Or this text</p>
+    <p v-show="show">Just display none</p>
+    <button @click="show = !show"> Switch </button>
+    <hr>
+    <ul>
+        <li v-for="(fruit, i) in fruits" :key="fruit">{{ fruit }} ( {{ i }} )</li>
+    </ul>
+    <button @click="fruits.push( 'Avocato' )"> Add </button>
+    <hr>
+    <template>
+        <div v-for="person in persons">
+            <div v-for="(value, key) in person">
+                {{ key }} : {{ value }}
+            </div>
+        </div>
+    </template>
+   <div v-for="n in 10">{{ n }}</div>
+
+</div>
+
+</body>
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+          show: true,
+          fruits: ['Banana', 'Apple', 'Pineapple'],
+          persons: [
+              { name: 'Diana', age: 35, city: 'Eindhoven'},
+              { name: 'Sheila', age: 36, city: 'São Paulo'}
+          ]
+
+        },
+
+    })
+</script>
+</html>
