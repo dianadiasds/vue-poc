@@ -1,20 +1,20 @@
 <template>
   <div class="container" id="app">
-    <Header/>
+    <app-header></app-header>
     <hr>
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <List/>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-       <Update/>
-      </div>
+
+        <app-list></app-list>
+
+
+        <app-update></app-update>
+
     </div>
     <hr>
     <div class="row">
-      <div class="col-xs-12">
-       <Footer/>
-      </div>
+
+        <app-footer></app-footer>
+
     </div>
   </div>
 </template>
@@ -27,7 +27,12 @@
 
   export default {
 
-    components: { Header, List , Update, Footer},
+    components: {
+      'app-header' : Header,
+      'app-list' : List ,
+      'app-update' : Update,
+      'app-footer' : Footer
+    },
   }
 </script>
 
